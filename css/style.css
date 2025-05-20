@@ -1,0 +1,834 @@
+/* ستایلی نوێ بۆ ئەکادێمیای شەترەنجی هەولێر */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+/* ڕیسێت و ستایلی گشتی */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* ڕەنگەکان */
+    --primary-color: #1e3a8a;
+    --secondary-color: #be123c;
+    --accent-color: #059669;
+    --bg-light: #f8fafc;
+    --bg-dark: #0f172a;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease-in-out;
+}
+
+body {
+    font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    direction: rtl;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 60px;
+    background-color: var(--secondary-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+/* هێڵی جیاکەرەوەی بەشەکان */
+.section-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    fill: var(--bg-light);
+    z-index: 1;
+}
+
+.section-divider.dark {
+    fill: var(--bg-dark);
+}
+
+/* هێدەر و ناڤیگەیشن */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-sm);
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+header.scrolled {
+    padding: 10px 25px;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: var(--shadow-md);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    transition: var(--transition);
+}
+
+header.scrolled .logo {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1.05rem;
+    position: relative;
+    padding: 8px 0;
+    transition: var(--transition);
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+nav ul li a:hover, 
+nav ul li a.active {
+    color: var(--secondary-color);
+}
+
+nav ul li a:hover::before,
+nav ul li a.active::before {
+    width: 100%;
+}
+
+/* مێنیوی مۆبایل */
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.mobile-menu-btn:hover {
+    color: var(--secondary-color);
+}
+
+/* هێرۆ سێکشن */
+.hero {
+    background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(30, 58, 138, 0.85)), url('../images/chess-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 180px 20px 120px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+/* ستایلی دوگمەکان */
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(190, 18, 60, 0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(190, 18, 60, 0.4);
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+/* دەربارەی ئێمە */
+.about-section {
+    background-color: var(--bg-light);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.about-text {
+    flex: 1;
+    animation: fadeInRight 1s ease-out;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.chess-board {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    animation: fadeInLeft 1s ease-out;
+}
+
+.board-container {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    border: 10px solid #4b5563;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.chess-square {
+    position: absolute;
+    width: 12.5%;
+    height: 12.5%;
+    transition: var(--transition);
+}
+
+.chess-square.white {
+    background-color: #f3f4f6;
+}
+
+.chess-square.black {
+    background-color: var(--primary-color);
+}
+
+/* چالاکییەکان */
+.activities-section {
+    background-color: var(--bg-dark);
+    color: white;
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+    padding-top: 150px;
+}
+
+.activities-section h2 {
+    color: white;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.activity-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    color: var(--text-primary);
+    transform: translateY(50px);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.activity-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.activity-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.activity-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.activity-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.activity-card:hover .activity-image {
+    transform: scale(1.05);
+}
+
+.activity-content {
+    padding: 25px;
+}
+
+.activity-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.activity-content p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.activity-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.activity-date i {
+    margin-left: 8px;
+    color: var(--secondary-color);
+}
+
+.view-details {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+}
+
+.view-more {
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* پەیوەندی */
+.contact-section {
+    background-color: var(--bg-light);
+    text-align: center;
+    position: relative;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin: 60px 0 40px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    width: 250px;
+    transition: var(--transition);
+    transform: translateY(50px);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.contact-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.contact-item:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.contact-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-item i {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.contact-item:hover i {
+    color: var(--secondary-color);
+}
+
+.contact-item p {
+    font-weight: 500;
+}
+
+.social-media {
+    margin-top: 40px;
+}
+
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+    border-radius: 50%;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.social-media a:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+/* لاپەڕەی چالاکییەکان */
+.activities-page {
+    padding-top: 150px;
+    padding-bottom: 80px;
+}
+
+.activities-filter {
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+#search-activities {
+    width: 100%;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+#search-activities:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(190, 18, 60, 0.3), var(--shadow-sm);
+}
+
+/* مۆدال */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 50px 20px;
+}
+
+.modal-content {
+    background-color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    animation: zoomIn 0.3s ease-out;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.close-modal:hover {
+    color: var(--secondary-color);
+}
+
+.activity-header {
+    padding: 30px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.activity-header h2 {
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.activity-header h2::after {
+    display: none;
+}
+
+.activity-images {
+    height: 400px;
+    overflow: hidden;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.activity-description {
+    padding: 30px;
+}
+
+.activity-description h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.activity-video {
+    padding: 0 30px 30px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 نیسبەتی */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ئەنیمەیشنەکان */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* تایبەتمەندی ڕەسپۆنسیڤ */
+@media (max-width: 992px) {
+    h2 {
+        font-size: 2.2rem;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .board-container {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .hero {
+        padding: 150px 20px 100px;
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .contact-info {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        flex-direction: column;
+        background-color: white;
+        width: 80%;
+        height: calc(100vh - 80px);
+        padding: 40px;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        z-index: 999;
+    }
+    
+    nav ul.active {
+        right: 0;
+    }
+    
+    nav ul li {
+        margin: 15px 0;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .board-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    section {
+        padding: 80px 0;
+    }
+    
+    .activities-section {
+        padding-top: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .board-container {
+        width: 260px;
+        height: 260px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .contact-item {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .social-media a {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        margin: 0 5px;
+    }
+    
+    .hero {
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+    
+    .activities-section {
+        clip-path: polygon(0 3%, 100% 0, 100% 100%, 0 100%);
+        padding-top: 100px;
+    }
+}
+
+/* ئیفێکتی لۆدینگ */
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--primary-color);
+}
+
+.loading-spinner i {
+    font-size: 40px;
+    margin-bottom: 20px;
+    animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* سڵایدەری چالاکییەکان */
+.activity-slider {
+    overflow: hidden;
+    margin: 50px 0;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.slider-btn {
+    background-color: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider-btn:hover {
+    background-color: var(--secondary-color);
+}

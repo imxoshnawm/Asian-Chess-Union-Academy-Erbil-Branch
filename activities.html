@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="ku-IQ" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کار و چالاکییەکان - ئەکادێمیای شەترەنجی هەولێر</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="لۆگۆی ئەکادێمیای شەترەنجی هەولێر" class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">سەرەکی</a></li>
+                <li><a href="activities.html" class="active">کار و چالاکییەکان</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <section class="activities-page">
+        <div class="container">
+            <h1>کار و چالاکییەکانی ئەکادێمیا</h1>
+            
+            <div class="activities-filter">
+                <input type="text" id="search-activities" placeholder="گەڕان لە چالاکییەکان...">
+            </div>
+            
+            <div id="all-activities" class="activities-grid">
+                <!-- داتاکان لە داتابەیسەوە دێن بە هۆی JavaScript -->
+                <!-- لۆدینگ نیشاندەر -->
+                <div class="loading-spinner">
+                    <i class="fas fa-chess-knight fa-spin"></i>
+                    <p>چاوەڕوان بە...</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- مۆدێلی نیشاندانی وردەکاری چالاکی -->
+    <div id="activity-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="activity-detail-content">
+                <!-- وردەکاری چالاکی لێرە دەردەکەوێت -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/activities.js"></script>
+
+</body>
+</html>
